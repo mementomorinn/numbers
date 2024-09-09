@@ -14,11 +14,23 @@
   </head>
   <body>
     <div class="container">
-      <div class="search">
-        <input id="num" type="num" placeholder="number" />
-        <button id="get-fact">Get fact</button>
-      </div>
-      <button id="get-random-fact">Get random fact</button>
+      <section class="number">
+        <button id="num-date">Click to get the fact about the date</button>
+        <div class="search">
+          <input id="num" type="num" placeholder="number" />
+          <button id="get-fact-num">Get fact</button>
+        </div>
+        <button id="get-random-fact-num">Get random fact</button>
+      </section>
+      <section class="date">
+        <button id="date-num">Click to get the fact about the num</button>
+        <div class="search">
+          <input id="month" type="num" placeholder="month" />
+          <input id="day" type="num" placeholder="day" />
+          <button id="get-fact-date">Get fact</button>
+        </div>
+        <button id="get-random-fact-date">Get random fact</button>
+      </section>
       <div class="fact"></div>
     </div>
     <script src="script.js"></script>
