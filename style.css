@@ -1,6 +1,6 @@
 :root {
-  --color-brown: #524643;
-  --color-white: #d1c4b4;
+  --color-brown: #5c4d49;
+  --color-white: #d1c5b7;
 }
 * {
   padding: 0;
@@ -27,15 +27,16 @@ button {
 }
 input {
   font: inherit;
-  font-size: 25px;
+  font-size: 27px;
   width: 215px;
   height: 70px;
   padding: 10px;
   border-radius: 10px;
   margin-right: 15px;
+  border: 3px, solid, var(--color-white);
 }
 .number input {
-  width: 214px;
+  width: 244px;
   border-color: var(--color-brown);
   background-color: var(--color-white);
 }
@@ -44,8 +45,7 @@ input {
   color: var(--color-white);
 }
 .date input {
-  width: 107px;
-  border-color: var(--color-white);
+  width: 117px;
   background: var(--color-brown);
 }
 .date button {
@@ -58,7 +58,7 @@ input {
   margin: 77px auto 0 auto;
   background-color: var(--color-white);
   border-radius: 10px;
-  box-shadow: 0px 10px 15px 10px rgb(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 20px 10px rgb(0, 0, 0, 0.3);
 }
 .search {
   display: flex;
@@ -67,9 +67,17 @@ input {
 .fact {
   display: none;
   border-radius: 10px;
-  background-color: #fff;
+  border: 3px, solid, var(--color-brown);
+  background-color: var(--color-white);
+  width: 100%;
+  padding: 15px;
 }
-.number {
+.fact h2 {
+  font-size: 40px;
+}
+.fact p {
+  color: var(--color-brown);
+  font-size: 20px;
 }
 .date {
   display: none;
