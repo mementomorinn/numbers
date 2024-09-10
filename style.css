@@ -1,3 +1,7 @@
+:root {
+  --color-brown: #524643;
+  --color-white: #d1c4b4;
+}
 * {
   padding: 0;
   margin: 0;
@@ -7,12 +11,54 @@
 body {
   font-family: "Open Sans", system-ui;
   font-size: 16px;
+  background: var(--color-brown);
+}
+button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  height: 70px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 25px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+input {
+  font: inherit;
+  font-size: 25px;
+  width: 215px;
+  height: 70px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+.number input {
+  width: 214px;
+  border-color: var(--color-brown);
+  background-color: var(--color-white);
+}
+.number button {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+}
+.date input {
+  width: 107px;
+  border-color: var(--color-white);
+  background: var(--color-brown);
+}
+.date button {
+  background-color: var(--color-white);
+  color: var(--color-brown);
 }
 .container {
   width: 620px;
-  padding: 30px 20px;
-  margin: 0 auto;
-  background-color: #c4c4c4;
+  padding: 60px 45px;
+  margin: 77px auto 0 auto;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px 10px rgb(0, 0, 0, 0.2);
 }
 .search {
   display: flex;
@@ -20,6 +66,8 @@ body {
 }
 .fact {
   display: none;
+  border-radius: 10px;
+  background-color: #fff;
 }
 .number {
 }
