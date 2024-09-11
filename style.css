@@ -54,11 +54,11 @@ input {
 }
 .container {
   width: 620px;
-  padding: 60px 45px;
+  padding: 50px 45px;
   margin: 77px auto 0 auto;
   background-color: var(--color-white);
   border-radius: 10px;
-  box-shadow: 0px 10px 20px 10px rgb(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 20px 10px rgba(58, 50, 50, 0.3);
 }
 .search {
   display: flex;
@@ -81,4 +81,49 @@ input {
 }
 .date {
   display: none;
+}
+.input_flex {
+  display: flex;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 500px;
+    margin: 60px auto 0 auto;
+    padding: 40px 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .container {
+    width: 400px;
+    padding: 30px 20px;
+  }
+  .date input {
+    width: 100%;
+  }
+  .date input:last-child {
+    margin: 0;
+  }
+  .search {
+    flex-direction: column;
+  }
+  .number input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .input_flex {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    width: 343px;
+    padding: 20px 15px;
+  }
+  button {
+    margin-bottom: 10px;
+  }
+  .input_flex {
+    margin-bottom: 10px;
+  }
 }
