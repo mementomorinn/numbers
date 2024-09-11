@@ -16,7 +16,9 @@ function numToDate() {
   container.style.background = "var(--color-brown)";
   body.style.background = "var(--color-white)";
   fact.style.display = "none";
-  document.getElementById("num").value = "";
+  document.getElementById("month").value = "";
+  document.getElementById("day").value = "";
+  fact.style.border = "none";
 }
 numBtn.addEventListener("click", numToDate);
 
@@ -29,6 +31,7 @@ function dateToNum() {
   body.style.background = "var(--color-brown)";
   fact.style.display = "none";
   document.getElementById("num").value = "";
+  fact.style.border = "3px, solid, var(--color-brown)";
 }
 dateBtn.addEventListener("click", dateToNum);
 
@@ -66,16 +69,6 @@ function getRandomFactNum() {
 buttonNum.addEventListener("click", getFactNum);
 randomNumButton.addEventListener("click", getRandomFactNum);
 
-// function fetchFact(num) {
-//   let finalUrl = url + num;
-//   fetch(finalUrl)
-//     .then((resp) => resp.text())
-//     .then((resp) => {
-//       console.log(resp);
-//     });
-// }
-
-// fetchFact("12/9/date");
 // async function fetchFact(num) {
 //   const finalUrl = url + num;
 //   try {
@@ -88,46 +81,36 @@ randomNumButton.addEventListener("click", getRandomFactNum);
 //   }
 // }
 
-//для даты
+//для дат
 //объявление переменных
 const buttonDate = document.getElementById("get-fact-date");
 const randomButtonDate = document.getElementById("get-random-fact-date");
 
 function getFactDate() {
-  const month = document.getElementById("month").value;
-  const day = document.getElementById("day").value;
+  const month = parseInt(document.getElementById("month").value);
+  const day = parseInt(document.getElementById("day").value);
+  const date = `2020/${month}/${day}`;
+  fact.style.display = "block";
   if (month && day) {
-    fact.style.display = "block";
-    if (month >= 1 && month <= 12 && day > 0 && day <= 31) {
-      switch (month) {
-        case 2:
-          if (day <= 29) {
-            fetchFact(`${month}/${day}/date`);
-            break;
-          }
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-          if (day <= 30) {
-            fetchFact(`${month}/${day}/date`);
-            break;
-          }
-        default:
-          if (day <= 31) {
-            fetchFact(`${month}/${day}/date`);
-            break;
-          }
+    if (Date.parse(date)) {
+      if (month === 2 && day > 29) {
+        fact.innerHTML = "<p>please enter a valid date</p>";
+      } else if (
+        (month === 4 || month === 6 || month === 9 || month === 11) &&
+        day > 30
+      ) {
+        fact.innerHTML = "<p>please enter a valid date</p>";
+      } else {
+        fetchFact(`${month}/${day}/date`);
       }
     } else {
-      fact.style.display = "block";
       fact.innerHTML = "<p>please enter a valid date</p>";
     }
   } else {
-    fact.style.display = "block";
     fact.innerHTML = "<p>the input field  cannot be empty</p>";
   }
 }
+
 buttonDate.addEventListener("click", getFactDate);
 
 //рандомная дата
@@ -152,18 +135,15 @@ function getRandomFactDate() {
   fetchFact(`${month}/${day}/date`);
 }
 randomButtonDate.addEventListener("click", getRandomFactDate);
-// for (let i = 0; i < 13; i++) {
-//   getRandomFactDate();
-// }
 
 // отправка запроса на сервер и получение данных
 function fetchFact(num) {
   const finalUrl = url + num;
+
   fetch(finalUrl)
     .then((resp) => resp.text())
     .then((resp) => {
       fact.innerHTML = `<h2>${num.toString().replace("/date", "")}</h2>
-      <p>${resp}</p>`;
-      document.querySelector(".container").append(fact);
+        <p>${resp}</p>`;
     });
 }
